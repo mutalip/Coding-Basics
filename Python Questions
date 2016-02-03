@@ -34,3 +34,12 @@ With this revised implementation, the output would be:
 list1 = [10]
 list2 = [123]
 list3 = ['a']
+
+2. What will be the output of the code below? Explain your answer.
+
+def multipliers():
+  return [lambda x : i * x for i in range(4)]
+    
+print [m(2) for m in multipliers()]
+
+
