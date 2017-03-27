@@ -1,4 +1,5 @@
 ##############################################################################################################################
+######Write a method to replace all spaces in a string with ‘%20’############
 # Method 1
 # Ideas: For both of the them, for example, we can sort them with MergeSort, and then compare them.
 # Time Complexity: O(n)
