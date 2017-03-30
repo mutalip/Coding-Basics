@@ -1,5 +1,6 @@
 Solution  1
 
+
 fizzbuzz = ''
 
 start = int(input("Start Value:"))
@@ -20,6 +21,8 @@ print(fizzbuzz)
 
 
 Solution2
+
+
 fizzbuzz = []
 
 start = int(input("Start Value:"))
@@ -39,8 +42,11 @@ for i in range(start,end+1):
 for i in fizzbuzz:
     print(i)
     
-    Soution 3
-    def fizzbuzz(start, end):
+
+Soution 3
+
+
+def fizzbuzz(start, end):
     def int_to_fizzbuzz(i):
         entry = ''
         if i%3 == 0:
