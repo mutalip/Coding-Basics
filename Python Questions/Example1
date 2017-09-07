@@ -1,0 +1,11 @@
+#This will print out all the link tags on a web page as HTML code (print(x)) and just the link text (print( x[“href”] )
+import urllib3
+from bs4 import BeatifulSoup
+
+wpage = urllib3.PoolManager()
+r = wpage.request("Get","http://ww.fullcoll.edu")
+
+soup = BeatifulSoup(r.data,"html.parser")
+for x in links:
+    print(x)
+    print(x["href"])
