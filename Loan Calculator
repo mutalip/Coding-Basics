@@ -1,0 +1,148 @@
+
+'''
+Problem descrition
+
+Print amount of user must pay back.
+    -Loan amount (Whole numbers or decimal?) OK
+- check ranges(10-10,00)
+Enter interest rate-either as 0.05 or 5 for 5%
+check the number <1 then assume fractional interest?(Cannever have less than 1 interesr?)
+    OK, inters rate > then divided by 00
+
+    -Period of loan in years - range check on this 1 to 30
+
+    -Compunding period?-Month or, quter, year ?? What is compounding period)
+
+
+100 interesr is %10- 110 - calculated the interet once.
+
+100 for 3 years- compounding yearly
+
+end of year 1 = 110 = 100*10
+End of year 2 = 110*10%  121
+End of year 3 = 121*10% = 133.10
+
+Enter first letter or pull first letter from string
+
+    1. Have to design user interface
+    2. have to create code to perform compounding.
+        a. Quarter is 1/4 of year- 3month
+
+Enter loan amount : XXXX
+Enter interest rate: XXXXX
+Enter years of loan: XXXXXXXX
+Compund (Y)early, (M)onthly, (Q)uarter: XXX
+You will owe us: XXXXXX
+Interest
+
+    1. Set up vaeriables
+        a. loan amount = 0
+        b. interest = 0.0
+        c. period = 0
+        d. Compounding = 0
+        e. totalowened = 0
+        f. Totallinterest = 0.0
+
+    2. Prompt for data
+        a. Input("Enter Loan amount"):
+            i Check range - if less than 10 or > 10000
+                then print errror
+            ii If error go back
+        b. Input (" Enter Interest Rate amount")
+            i. If interst >1 then divide by 100
+        c. Inpt("Ener Period of Loan")
+            i. If less thean 1 or > 30 then go back to c
+        d. Input("Compund (Y)early, (M)onthly, (Q)uarter: XXX")
+            i. Get first letter of string
+            ii. If not y or not M Or not Q then go to d
+
+    3. Calculate compounding value
+        a. If Y then period times 1
+        b. I M then period X12
+        c. If Q then period X 4
+    4. Calculate total owed
+
+Starting vale* interest -> New Value -> Starting V
+Starting value
+For each period:
+StartingValue = StartingValue + ( StartingValue*interest)
+
+
+
+
+
+'''
+
+########Variebles#########
+LoanAmount = 0
+InterestAmount = 0.0
+Period = 0
+Compounding = 0
+TotalOwned = 0
+TotalInterest = 0.0
+
+    
+
+###########UI Section###########
+
+LoanAmount = int(input("Enter Loan Amount:"))
+InterestAmount = float(input("Enter Interest amount"))
+Period = int(input("Enter Loan Period: "))
+Compounding = input("Enter (Y)ears, (M)nth, or (Q)uarter")
+CompLetter = ""
+CompNumber = 0
+PaymentAmount = float(input("How muchwill be: "))
+
+#####Data Vaidation################
+if (LoanAmount < 10 or LoanAmount > 100000):
+    print("Error in loan amount")
+else:
+    print("Loan amount is ok ")
+print("Loan amount", LoanAmount)
+
+if (InterestAmount >= 1):
+    InterestAmount = InterestAmount /100.00
+print("Interst amount is ok ")
+print("Interest:", InterestAmount)
+
+if (Period <= 1 or Period >= 30):
+    print("Eroor in loan Period")
+else:
+    print("Perod is ok ")
+print("Period: ", Period )
+
+Compounding = Compounding.upper()
+CompLetter = Compounding[0]
+
+if (CompLetter == "Y" or CompLetter == "Q" or CompLetter == "M"):
+    print("Compounding OK")
+else:
+    print("Error in compounding Period")
+
+if CompLetter == "Y":
+    CompNumber = Period
+elif(CompLetter == "M"):
+    CompNumber = Period*12
+else:
+    CompNumber = Period*4
+
+print("Compunding Number", CompNumber)
+
+##########Calculate pay back amount############
+counter = 1
+Payback = LoanAmount
+
+while ( counter <= CompNumber):
+    Payback = Payback -PaymentAmount
+    Payback = Payback + (Payback*InterestAmount)
+    counter = counter + 1
+    print("Paybakc", Payback)
+print("you will owe {0:8:2f}interers".format(Payback))
+InterestPaid = Payback -LoanAmount
+print("You paid {} Interest".format(InterestAmount))
+
+''''
+Sample data 
+
+
+'''
