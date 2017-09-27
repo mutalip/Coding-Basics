@@ -1,0 +1,10 @@
+from tkinter import *
+root = Tk()
+
+#Modify root window
+root.title("Simple GUI")
+root.geometry("300x500")
+
+
+#kick off 
+root.mainloop()
