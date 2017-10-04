@@ -1,0 +1,93 @@
+
+'''
+
+
+A. Prompt the user for information
+    Enter loan amount : XXXX
+    Enter interest rate: XXXXX
+    Enter years of loan: XXXXXXXX
+b. Check the information if  valid, if not repeat the request.
+C. Calculatye the by calling the function
+d. Print the result
+
+'''
+import math
+
+
+########Variebles#########
+LoanAMount = 0
+interest = 0.0
+Years = 0
+PaymentAmount = 0
+
+
+########Function############
+def calc_mortgage(principal, interest, years):
+     # monthly rate from annual percentage rate
+     interest_rate = interest/(100 * 12)
+     # total number of payments
+     payment_num = years * 12
+     # calculate monthly payment
+     payment = principal * (interest_rate/(1-math.pow((1+interest_rate), (-payment_num))))
+     return payment
+
+
+   
+
+#####Data Vaidation################
+while True:
+    try:
+        LoanAmount = int(input("Please enter your Loan Amount: "))
+    except ValueError:
+        print("Sorry, I didn't understand that.")
+        continue
+    if LoanAmount <100 :
+        print("Sorry, your response must not be less than 1000 or more than 1000000.")
+        continue
+    else:
+        break
+    
+print("Loan amount", LoanAmount)
+
+###Interest Rate##################
+while True:
+    try:
+        InterestR = float(input("Enter Interest amount"))
+    except ValueError:
+        print("Sorry, I didn't understand that.")
+        continue
+    if InterestR <0.5 :
+        print("Sorry, your response must not be less than 0.5.")
+        continue
+    else:
+        break
+print("Interest:", InterestR)
+
+
+###### Period ###############
+
+while True:
+    try:
+        Period = int(input("Enter Loan Years: "))
+    except ValueError:
+        print("Sorry, I didn't understand that.")
+        continue
+    if Period  <1 :
+        print("Sorry, your Period must not be less than 1")
+        continue
+    else:
+        break
+    
+print("Years: ", Period )
+
+
+###########Calculate mortage monthly payment############
+
+PaymentAmount = calc_mortgage(LoanAmount, InterestR, Period)
+
+print ("You Monthly payment will be ", PaymentAmount)
+
+
+
+
+
