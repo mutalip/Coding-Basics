@@ -1,24 +1,29 @@
 '''1. Open a command window in the Scripts folder of your python installation.
 2. Type pip install openpyxl
 3. Create a new Python program'''
+
 import openpyxl
 from openpyxl import load_workbook
+
 # Create an Excel worksheet
 # Create blank workbook
 wb = openpyxl.Workbook()
+
 # Create sheet with title
 sheet = wb.create_sheet("January",0)
+
 # Set some values
 sheet['A1'] = "My Dog"
 sheet['A2'] = 123.44
 sheet['A3'] = 456.22
 sheet['A4'] = "=Sum(A2,A3)"
+
 # Save the worksheet
-wb.save("c:/users/dcraig/desktop/mysheet.xlsx")
+wb.save("c:/Python36/mysheet.xlsx")
 wb.close()
+
 # Open the sheet again
-wb2 =
-load_workbook("c:/users/*/desktop/mysheet.xlsx")
+wb2 = load_workbook("c:/Python36/mysheet.xlsx")
 sheet = wb2.get_sheet_by_name('January')
 print(sheet['A1'].value)
 print(sheet['A4'].value)
