@@ -1,0 +1,21 @@
+# 1. Open command window and change to Python\scripts folder.
+# 2. Enter:
+# pip install arrow
+# 3. Enter and run the following program:
+import arrow
+def birthdayoweek(y, m, d):
+ dd = arrow.get(y,m,d)
+ r = dd.format("You were born on dddd")
+ return r
+yy = input("Enter year you were born: ")
+yy = int(yy)
+mm = input("Enter month you were born as a number: ")
+mm = int(mm)
+dd = input("Enter day you were born: ")
+dd = int(dd)
+print( birthdayoweek(yy,mm,dd))
+present = arrow.now()
+future = present.shift(hours=5)
+print( future.humanize(present))
+nextdate = arrow.now().shift(days=3)
+print(nextdate.format("MMMM DD (dddd), YYYY HH:mm:ss a"))
