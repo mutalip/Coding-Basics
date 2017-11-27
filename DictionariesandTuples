@@ -1,0 +1,58 @@
+'''
+Open files and load dictionary
+2. Prompt user for store and item , qt
+3. Validate input
+4. Retrive the item price for product
+5. Calculate order (price times queantaty)
+6. Calcuae the discount
+7. Ask for store name
+7. Calculate discount
+8. Display result
+
+Story discount = {'ikia' : .20 , 'target': 20}
+
+
+Item Name Regular Price
+Chair 245.00
+Stool 187.00
+Couch 875.00
+Recliner 345.00
+Bookshelf 201.00
+
+Store Name Discount
+Ikea 20%
+Sears 10%
+Target 12%
+
+
+
+'''
+
+
+
+dictprice = {'chair' : 245.00, 'Stool' : 187.00, 'Couch' : 875.00, 'Recliner' : 345.00, 'Bookshelf' : 201.00  }
+dictstore = {'Ikea' : .20,  'Sears' : .1 , 'Target': .12 }
+
+ordernum = 1
+# sname = input ("Enter Store Name: ")
+# item = input("Enter Item Name: ")
+# qty = int (input("Enter QTY: "))
+
+orderdict = {}
+exitorder = False
+
+while(exitorder==False):
+    sname = input("Enter Store Name: ")
+    item = input("Enter Item Name: ")
+    qty = int(input("Enter QTY: "))
+
+    total = dictprice[item]*qty
+    total1 = total - dictstore[sname]*total
+
+    orderdict["order " + str(ordernum)] = total1
+    ordernum = ordernum + 1
+    more = input("another order? Y/N")
+    if (more == "N"):
+        exitorder = True
+
+print (" Your total order is :$ ", total1)
